@@ -47,3 +47,10 @@ Select Count(*),age from Student group by age;
 
 -- Select using Distinct 
 Select Distinct age from Student;
+
+-- Update query
+UPDATE Student set address = 'Baroda' where id = 4;
+
+-- Delete query
+DELETE from Student where id = 4;
+
