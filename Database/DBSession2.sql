@@ -1,6 +1,8 @@
 -- Create Database
 Create Database DBSession2;
 
+use DBSession2;
+
 -- Create Table Customer
 CREATE Table Customers(
 CustomerId int Primary Key,
@@ -118,9 +120,8 @@ End Catch
 	
 
 -- Views 
-Create View Purchases 
-As 
-	Select o.OrderId as Number, p.ProductName as Product, c.CustomerName as Ordered_By, p.Price as Price
-	From Orders o, Products p, Customers c
-	Where o.CustomerId = c.CustomerId and o.ProductsId = p.ProductId;
-	Select * from Purchases;
+Create View Purchases As 
+Select o.OrderId as Number, p.ProductName as Product, c.CustomerName as Ordered_By, p.Price as Price
+From Orders o, Products p, Customers c
+Where o.CustomerId = c.CustomerId and o.ProductsId = p.ProductId;
+Select * from Purchases;
