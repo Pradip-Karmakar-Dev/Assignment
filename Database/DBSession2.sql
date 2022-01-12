@@ -92,10 +92,35 @@ END
 DECLARE @getPrice decimal(8,2)
 EXEC getProduct 101, @price = @getPrice output
 
--- Views 
-Create View Purchases As 
-Select o.OrderId as Number, p.ProductName as Product, c.CustomerName as Ordered_By, p.Price as Price
-From Orders o, Products p, Customers c
-Where o.CustomerId = c.CustomerId and o.ProductsId = p.ProductId;
 
-Select * from Purchases;
+-- Creating Exception Handeling Procedure
+
+Create Procedure catchExceptions
+As
+SELECT
+	ERROR_NUMBER() AS ErrorNumber,
+	ERROR_LINE() AS ErrorLine,
+	ERROR_MESSAGE() AS ErrorMessage;
+Go
+	
+	
+Create Procedure fetchTableWithExeption
+As
+	Select * from Product;
+GO
+
+Begin Try
+	EXEC fetchTableWithExeption;
+End Try
+Begin Catch
+	EXEC catchExceptions;
+End Catch
+	
+
+-- Views 
+Create View Purchases 
+As 
+	Select o.OrderId as Number, p.ProductName as Product, c.CustomerName as Ordered_By, p.Price as Price
+	From Orders o, Products p, Customers c
+	Where o.CustomerId = c.CustomerId and o.ProductsId = p.ProductId;
+	Select * from Purchases;
