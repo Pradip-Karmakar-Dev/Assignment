@@ -61,7 +61,7 @@ Select OrderId, ProductName from Orders Right join Products on Orders.ProductsId
 
 
 -- Full Joins Operations
-Select OrderId, ProductName from Orders Full join Products on Orders.ProductsId = Products.ProductId;
+Select * from Orders Full join Products on Orders.ProductsId = Products.ProductId;
 
 
 -- Create Stored Procedure
@@ -92,9 +92,9 @@ SELECT @price = Price FROM Products Where ProductId = @id;
 END
 
 DECLARE @getPrice decimal(8,2)
-EXEC getProduct 101, @price = @getPrice output
+EXEC getProduct 102, @price = @getPrice Output
 
-
+select @getPrice as Price
 -- Creating Exception Handeling Procedure
 
 Create Procedure catchExceptions
@@ -120,8 +120,9 @@ End Catch
 	
 
 -- Views 
-Create View Purchases As 
+Create View Purchases as 
 Select o.OrderId as Number, p.ProductName as Product, c.CustomerName as Ordered_By, p.Price as Price
 From Orders o, Products p, Customers c
 Where o.CustomerId = c.CustomerId and o.ProductsId = p.ProductId;
+
 Select * from Purchases;
