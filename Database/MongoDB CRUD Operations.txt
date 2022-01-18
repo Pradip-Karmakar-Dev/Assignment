@@ -1,0 +1,209 @@
+Crud Operations
+
+1. Create Operations
+
+    1.1 Create Database
+        use company
+
+        Output:
+        switched to db company
+
+
+    1.2 Create Collection
+        db.createCollection('employees')
+
+        Output:
+        { "ok" : 1 }
+
+
+    1.3 Inserting Documents
+        1.3.1 Single Insertion
+            db.employees.insert({
+                name: 'pradip',
+                 age: 23,
+                 hobbies: ['Gaming', 'Reading', 'Riding'],
+                 salary: 10000.00
+            })
+
+            Output :
+            WriteResult({ "nInserted" : 1 })
+
+
+        1.3.2 Many Insertion
+            db.employees.insertMany([
+                {
+                    name: 'rakesh',
+                    age: 22,
+                    hobbies: ['Gaming'],
+                    salary: 8000.00
+                },
+                {
+                    name: 'Vaibhav',
+                    age: 21,
+                    salary: 11000.00
+                },
+                {
+                    name: 'Kunjal',
+                    age: 20,
+                    hobbies: ['Swimming'],
+                    salary: 7000.00
+                }
+            ])
+
+            Output :
+            {
+                "acknowledged" : true,
+                "insertedIds" : [
+                        ObjectId("61e679229ae89940920e93b4"),,                                                   ,
+                        ObjectId("61e679229ae89940920e93b5"),
+                        ObjectId("61e679229ae89940920e93b6")
+                ]
+            }
+
+
+2. Read Operations
+
+    2.1 Finding Document
+        2.1.1 find All Documents 
+        db.employees.find()
+
+        Output:
+        {
+                "_id" : ObjectId("61e675f29ae89940920e93b3"),
+                "name" : "pradip",
+                "age" : 23,
+                "hobbies" : [
+                        "Gaming",
+                        "Reading",
+                        "Riding"
+                ],
+                "salary" : 10000
+        }
+        {
+                "_id" : ObjectId("61e679229ae89940920e93b4"),
+                "name" : "rakesh",
+                "age" : 22,
+                "hobbies" : [
+                        "Gaming"
+                ],
+                "salary" : 8000
+        }
+        {
+                "_id" : ObjectId("61e679229ae89940920e93b5"),
+                "name" : "Vaibhav",
+                "age" : 21,
+                "salary" : 11000
+        }
+        {
+                "_id" : ObjectId("61e679229ae89940920e93b6"),,
+                "name" : "Kunjal",
+                "age" : 20,
+                "hobbies" : [
+                        "Swimming"
+                ],
+                "salary" : 7000
+        }
+    
+
+        2.1.2 find Documents with condition
+        db.employees.find({hobbies: 'Gaming'})
+
+        Output:
+        {
+                "_id" : ObjectId("61e675f29ae89940920e93b3"),
+                "name" : "pradip",
+                "age" : 23,
+                "hobbies" : [
+                        "Gaming",
+                        "Reading",
+                        "Riding"
+                ],
+                "salary" : 10000
+        }
+        {
+                "_id" : ObjectId("61e679229ae89940920e93b4"),
+                "name" : "rakesh",
+                "age" : 22,
+                "hobbies" : [
+                        "Gaming"
+                ],
+                "salary" : 8000
+        }
+
+
+        2.1.3 find one Document
+        db.employees.findOne({hobbies: 'Gaming'})
+
+        Output:
+        {
+                "_id" : ObjectId("61e675f29ae89940920e93b3"),
+                "name" : "pradip",
+                "age" : 23,
+                "hobbies" : [
+                        "Gaming",
+                        "Reading",
+                        "Riding"
+                ],
+                "salary" : 10000
+        }
+
+
+3. Update Operations
+
+    3.1 Updating Documents
+        3.1.1 update whole document
+        db.employees.update({ name: 'Kunjal' },
+            {
+                name: 'Neel',
+                age: 23,
+                salary: 12000,
+                mobileno: '9876543210',
+            }
+        )
+
+        Output:
+        WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 1 })
+
+        
+        3.1.2 update perticular field in document
+        db.employees.update({ name: 'Neel' },
+            {
+                $set:{
+                    name: 'Kunjal'
+                }
+            }
+        )
+
+        Output:
+        WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 1 })
+
+
+4. Delete Operations
+
+    4.1 Delete / Remove Document
+        db.employees.remove({ name: 'Kunjal' })
+
+        Output:
+        WriteResult({ "nRemoved" : 1 })
+
+
+
+Find Document By id
+1. db.employees.find("61e679229ae89940920e93b5")
+2. db.employees.find(ObjectId("61e679229ae89940920e93b5"))
+3. db.employees.find({ "_id" : ObjectId("61e679229ae89940920e93b5")})
+
+Output:
+{ "_id" : ObjectId("61e675f29ae89940920e93b3"), "name" : "pradip", "age" : 23, "hobbies" : [ "Gaming", "Reading", "Riding" ], "salary" : 10000 }
+
+
+Add index 
+db.employees.createIndex({ name: 1 }) // created index in asscending order
+
+Output:
+{
+        "numIndexesBefore" : 1,
+        "numIndexesAfter" : 2,
+        "createdCollectionAutomatically" : false,
+        "ok" : 1
+}
