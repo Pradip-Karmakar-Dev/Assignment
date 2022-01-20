@@ -1,0 +1,64 @@
+body, html{
+    margin: 0 auto;
+}
+
+.navbar{
+    position: fixed;
+    background-color: #623cfa;
+    width: 100%;
+    height: 70px;
+}
+
+.container{
+    width: 100%;
+    display: flex;
+}
+
+.sidebar{
+    position: fixed;
+    height:100%;
+    width: 20%;
+    text-align: center;
+    color: #fff;
+    background-color: #623cfa;
+    font-family: Verdana;
+}
+
+.sidebar h2{
+    font-weight: bold;
+    color: #fff;
+}
+
+.menubar{
+    padding: 1em;
+    text-align: start !important;
+    display: grid;
+}
+
+.menubar > div {
+    padding: 1em;
+}
+
+.menubar > div a{
+    color: #fff;
+    text-decoration: none;
+    font-weight: 200;
+}
+
+.content{
+    margin-top: 70px;
+    margin-left: 20%;
+    padding: 1%;
+    width: 80%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    background-color: #f0f0f0;
+    grid-gap: 1em;
+}
+
+.box{
+    text-align: center;
+    background-color: #fff;
+    height: 20em;
+    box-shadow: 1px 1.5px #ddd;
+}

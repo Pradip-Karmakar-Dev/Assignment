@@ -12,3 +12,6 @@
 
 2. Version Control
     - [x] Git Commands
+
+3. Web Technology
+    - [x] Admin Panel Using HTML & CSS
