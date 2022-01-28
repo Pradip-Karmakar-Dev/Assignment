@@ -1,0 +1,63 @@
+body, html{
+    margin: 0 auto;
+}
+
+:root{
+    --navBarHeight: 56px;
+}
+
+.navbar{
+    background-color: #623cfa;
+}
+
+.sidebar{
+    width: 240px;
+    background-color: #623cfa;
+    font-family: Verdana;
+}
+
+.hamburger{
+    border: none;
+}
+
+.hamburger:focus {
+    box-shadow: none;
+}
+
+.nav-item > a{
+    color: #fff;
+}
+
+.nav-item > a:hover {
+    color:#ddd;
+}
+
+.nav-item > a:focus {
+    color: #ddd;
+}
+
+.main-content {
+    background-color: #f0f0f0;
+}
+
+.card{
+    box-shadow: 1px 1px 1px #ddd;
+}
+
+@media (min-width: 992px){
+
+    .text-reset{
+        display: none;
+    }
+
+    .sidebar {
+        visibility: visible !important;
+        transform: none;
+        top: var(--navBarHeight);
+        height: calc(100% - var(--navBarHeight));
+    }
+
+    main{
+        margin-left: 240px;
+    }
+}

@@ -1,0 +1,15 @@
+html, body {
+    margin: 0 auto;
+}
+
+.quiz-time{
+    font-size: 80px;
+}
+
+.custom-btn{
+    box-shadow: 2px 3px 3px rgb(46, 44, 44);
+}
+
+.custom-btn:hover{
+    box-shadow: none;
+}
