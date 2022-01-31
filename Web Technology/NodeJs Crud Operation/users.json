@@ -1,0 +1,22 @@
+[
+    {
+        "id": 1,
+        "name": "pradip",
+        "password": "test123",
+        "gender": "male",
+        "birthdate": "25/04/1998",
+        "age": 24,
+        "country": "india",
+        "phone": "+911112223334"
+    },
+    {
+        "id": 2,
+        "name": "sudip",
+        "password": "test123",
+        "gender": "male",
+        "birthdate": "28/08/1999",
+        "age": 22,
+        "country": "india",
+        "phone": "+919112223334"
+    }
+]
