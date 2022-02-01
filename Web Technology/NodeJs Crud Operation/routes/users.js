@@ -20,6 +20,9 @@ router.post('/', (req, res) => {
     if (error) return res.status(400).send(error.details[0].message);
 
     let users = readingFile();
+    let foundUserIndex = users.findIndex((user) => user.id === parseInt(req.body.id));
+    if (foundUserIndex != -1) return res.status(400).send('User Already Exist.....');
+
     users.push(req.body);
     const updatedObjectList = JSON.stringify(users, null, 2);
     writingFile(updatedObjectList);
