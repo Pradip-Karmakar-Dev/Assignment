@@ -11,11 +11,11 @@
   },
   {
     "id": 2,
-    "name": "sudip",
+    "name": "Rakesh",
     "password": "test123",
     "gender": "male",
-    "birthdate": "28/08/1999",
-    "age": 22,
+    "birthdate": "01/07/1998",
+    "age": 23,
     "country": "india",
     "phone": "+919112223334"
   }
