@@ -18,15 +18,5 @@
     "age": 22,
     "country": "india",
     "phone": "+919112223334"
-  },
-  {
-    "id": 3,
-    "name": "rakesh",
-    "password": "test123",
-    "gender": "male",
-    "birthdate": "28/08/1998",
-    "age": 22,
-    "country": "india",
-    "phone": "+919112223334"
   }
 ]

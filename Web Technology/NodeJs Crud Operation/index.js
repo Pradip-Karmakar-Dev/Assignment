@@ -51,7 +51,14 @@ app.put('/api/users/:id', (req, res) => {
 });
 
 app.delete('/api/users/:id', (req, res) => {
-
+    let users = readingFile();
+    let findUserIndex = users.findIndex((user) => user.id === parseInt(req.body.id));
+    if (findUserIndex != -1) {
+        users.splice(findUserIndex, 1);
+    }
+    const updatedObjectList = JSON.stringify(users, null, 2);
+    writingFile(updatedObjectList);
+    res.send(updatedObjectList);
 });
 
 function validateData(user) {
