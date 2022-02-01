@@ -15,3 +15,7 @@
 
 3. Web Technology
     - [x] Admin Panel Using HTML & CSS
+    - [x] Admin Panel Using Bootstrap
+    - [x] E-Commerce Layout using JavaScript
+    - [x] Quiz Game Interface using jQuery
+    - [x] CRUD Operations using NodeJs
