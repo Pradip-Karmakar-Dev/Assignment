@@ -19,3 +19,7 @@
     - [x] E-Commerce Layout using JavaScript
     - [x] Quiz Game Interface using jQuery
     - [x] CRUD Operations using NodeJs
+
+4. Data Structures & Algorithms
+    - [x] Arrays & Strings
+    - [x] Sorting
